@@ -1,0 +1,75 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>New Grad 2022</title>
+ 
+  <meta name="description" content="A simple HTML5 Template for new projects.">
+  <meta name="author" content="SitePoint">
+
+  <meta property="og:title" content="A Basic HTML5 Template">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.sitepoint.com/a-basic-html5-template/">
+  <meta property="og:description" content="A simple HTML5 Template for new projects.">
+  <meta property="og:image" content="image.png">
+
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+  <link
+  rel="stylesheet"
+  type="text/css"
+  href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+  />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  
+</head>
+
+<body>
+  <!-- your content here... -->
+  <form action="https://localhost:3009/user/register" method="POST">
+    <label for="name">First name:</label><br>
+    <input type="name" id="name" name="name"><br>
+    <label for="number">Number:</label><br>
+    <input type="number" id="number" name="number">
+    <button  onclick="submitNumber()" >Submit </button>   
+  </form>
+    <!--
+        1. Resend otp (enable only 1 minute);  
+        2. edit your number.
+        b-> java script sends request for otp  
+        a. otp is wrong -> otp wrong 
+        -->
+
+  <script src="">
+async function submitNumber(){
+  let btn= document.getElementById("contactButtonModal");
+  btn.classList.add("loading","disabled");
+  let name = document.getElementById("name").value;
+  let number = document.getElementById("number").value;
+
+  let req1 = {
+    method :"POST",
+    url: "https://localhost:3009/user/register",
+    body :{
+        name ,
+        number
+    }
+  }
+  axios(req1).then(async (response)=>{
+  btn.classList.remove("loading","disabled");
+  btn.classList.add("green");
+  btn.innerText = "Submitted";
+
+  })
+}
+
+
+</script>
+</body>
+</html>

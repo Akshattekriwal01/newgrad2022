@@ -47,9 +47,8 @@ module.exports.run = async function (){
         await vacancyM.create(item);
     })
 
-    let users = await userM.find({},"number").exec();
+    let users = await userM.find({verified:true},"number").exec();
     if(!users){throw "Some Error Occured"};
-    console.log(users);
      newVacancies.map(item =>{
        notifier.notify(users,item);
      })

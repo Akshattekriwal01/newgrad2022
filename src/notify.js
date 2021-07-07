@@ -15,7 +15,7 @@ module.exports.notify = async function (users,msg){
         to: users[i].number
     })
     .then(message => {
-        console.log(message.sid)
+        //console.log(message.sid)
     });
     }
 
@@ -32,7 +32,7 @@ module.exports.notify = async function (users,msg){
         to: number
     })
     .then(message => {
-        console.log(message.sid)
+       // console.log(message.sid)
     });
     
 

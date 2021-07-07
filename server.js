@@ -11,32 +11,20 @@ const bodyParser = require("body-parser");
 connectDB();
 
 
-
-
-let j = async()=>{
-  try{
-  let data = await collector.getData();
-  console.log(data);
-  }catch(e){
-    console.log(e);
-  }
- 
-};
-
 let runner = async()=>{
   try{
-    let data = await script.run();
-    console.log(data);
+    await script.run();
+
     }catch(e){
       console.log(e);
     }
 }
 runner();
-//j();
-// var job = new CronJob('0 */1 * * * *', function() {
-//   j();
-// }, null, true, 'America/Los_Angeles');
-// job.start();
+//Runs every one hour
+var job = new CronJob('0 0 * * * *', function() {
+  runner();
+}, null, true, 'America/Los_Angeles');
+//job.start();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/user",userRoutes);
