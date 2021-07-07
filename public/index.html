@@ -20,25 +20,52 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/form.min.css" integrity="sha512-GqdyivmcmveCy9pRf2yTD/TPYXVmbPFDojvy15i3xuLLy9nkgNhDRMk6+Dt/uYDdnItFUFF7WqW7GoGv+gPX+A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/form.min.js" integrity="sha512-VM6WNFlVLFwKXphssthAXJpG3cKWUK3G4edfsydLITA4iSeZmvJ+2gKBrR6qYkt/3A/I8hDHnAuIBz7xtfVtOg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
   <link rel="stylesheet" href="css/styles.css?v=1.0">
   <link
   rel="stylesheet"
   type="text/css"
   href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
   />
+  <link rel="stylesheet" type="text/css" href="stylesheets/index.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   
 </head>
 
 <body>
   <!-- your content here... -->
-  <form action="https://localhost:3009/user/register" method="POST">
-    <label for="name">First name:</label><br>
-    <input type="name" id="name" name="name"><br>
+  <div class="formbox">
+  <form action="https://localhost:3009/user/register" method="POST" class="ui form">
+  <div class="field">
+    <label for="name">First Name</label>
+    <input type="text" id="name" name="name" placeholder="First Name">
+  </div>
+  <div class="field">
     <label for="number">Number:</label><br>
     <input type="number" id="number" name="number">
-    <button  onclick="submitNumber()" >Submit </button>   
+  </div>
+    <button class="ui button" onclick="submitNumber()" >Submit </button>   
   </form>
+</div>
+
+<div class = "otpbox">
+  <form class = "ui form">
+    <div class = "field">
+      <label for="otp">OTP</label><br>
+      <input type="number" id="otp" name="otp">
+    </div>
+    9578399942
+    <button class="ui button" onclick="changeNum()" >Change Number</button>
+    <button class="ui button" onclick="resendOTP()" >Resend OTP</button>
+    
+  </form>
+  
+</div>
+
+
+
     <!--
         1. Resend otp (enable only 1 minute);  
         2. edit your number.

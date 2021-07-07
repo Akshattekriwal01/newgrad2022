@@ -1,0 +1,13 @@
+.formbox{
+	margin: auto;
+	max-width: 500px;
+	padding: 20px;
+}
+
+.otpbox{
+	margin: auto;
+	max-width: 500px;
+	border: 2px solid black;
+	border-radius: 20px;
+	padding: 20px;
+}
