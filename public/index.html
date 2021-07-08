@@ -22,21 +22,23 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/form.min.css" integrity="sha512-GqdyivmcmveCy9pRf2yTD/TPYXVmbPFDojvy15i3xuLLy9nkgNhDRMk6+Dt/uYDdnItFUFF7WqW7GoGv+gPX+A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/form.min.js" integrity="sha512-VM6WNFlVLFwKXphssthAXJpG3cKWUK3G4edfsydLITA4iSeZmvJ+2gKBrR6qYkt/3A/I8hDHnAuIBz7xtfVtOg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/button.min.css" integrity="sha512-OD0ScwZAE5PCg4nATXnm8pdWi0Uk0Pp2XFsFz1xbZ7xcXvapzjvcxxHPeTZKfMjvlwwl4sGOvgJghWF2GRZZDw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
 
   <link rel="stylesheet" href="css/styles.css?v=1.0">
-  <link
-  rel="stylesheet"
+<!--   <link rel="stylesheet"
   type="text/css"
-  <!-- href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" -->
-  />
+  href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"/> -->
   <link rel="stylesheet" type="text/css" href="stylesheets/index.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="index.js"></script>
+
   
 </head>
 
 <body>
   <!-- your content here... -->
-  <div class="formbox">
+<!--   <div class="formbox">
   <form action="https://localhost:3009/user/register" method="POST" class="ui form">
   <div class="field">
     <label for="name">First Name</label>
@@ -48,8 +50,8 @@
   </div>
     <button class="ui button" onclick="submitNumber()" >Submit </button>   
   </form>
-</div>
-
+</div> -->
+<!-- 
 <div class = "otpbox">
   <form class = "ui form">
     <div class = "field">
@@ -59,9 +61,25 @@
     9578399942
     <button class="ui button" onclick="changeNum()" >Change Number</button>
     <button class="ui button" onclick="resendOTP()" >Resend OTP</button>
-    
+
   </form>
   
+</div> -->
+
+<div id="progress"></div>
+
+<div class="center">
+  <div id="register">
+
+    <i id="progressButton" class="ion-android-arrow-forward next"></i>
+
+    <div id="inputContainer">
+      <input id="inputField" required autofocus />
+      <label id="inputLabel"></label>
+      <div id="inputProgress"></div>
+    </div>
+
+  </div>
 </div>
 
 
