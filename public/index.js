@@ -102,10 +102,30 @@ var questions = [
     })
 
   }
+  async function resendOTP(number){
+    let res = new Promise(async (resolve,reject)=>{
+        number = number.replace(/\D+/g, "");
+        number = "+1"+number;
+        let req1 = {
+            method :"POST",
+            url: 'http://localhost:3009/user/resend',
+            data :{
+                number
+            }
+        }
+        console.log("resend otp");
+        let response = await axios(req1)
+         if(response.status == 400){
+            resolve("success");
+        }else{
+            reject("Some Error Occured");
+        }
+    });
+    return res;
+  }
   async function verifyOTP(number,otp){ 
     let res = new Promise(async (resolve,reject)=>{
         number = number.replace(/\D+/g, "");
-        number = number.replace(/\s+/g, "");
         number = "+1"+number;
         let req1 = {
             method :"POST",

@@ -64,30 +64,5 @@
         -->
         <script src=" https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js"></script>
         <script src="index.js"></script>
-  <script src="">
-async function submitNumber(){
-  let btn= document.getElementById("contactButtonModal");
-  btn.classList.add("loading","disabled");
-  let name = document.getElementById("name").value;
-  let number = document.getElementById("number").value;
-
-  let req1 = {
-    method :"POST",
-    url: "https://localhost:3009/user/register",
-    body :{
-        name ,
-        number
-    }
-  }
-  axios(req1).then(async (response)=>{
-  btn.classList.remove("loading","disabled");
-  btn.classList.add("green");
-  btn.innerText = "Submitted";
-
-  })
-}
-
-
-</script>
 </body>
 </html>
