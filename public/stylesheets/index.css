@@ -160,8 +160,8 @@ button {
 }
 
 .btnDisable {
-  background-color:#808080;
-  /*border:1px solid #DD3939;*/
+  background-color:#d3d3d3;
+  border:0px solid #DD3939;
   border-radius: 7px;
   color:black;
   cursor:wait;

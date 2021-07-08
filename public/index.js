@@ -208,6 +208,7 @@ function countDown() {
     myTimer.innerHTML = sec;
   }
   if (sec <= 0) {
+    document.getElementById("timetext").style.display = "none";
     $("#myBtn").removeAttr("disabled");
     $("#myBtn").removeClass().addClass("btnEnable");
     $("#myTimer").fadeTo(2500, 0);
