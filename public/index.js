@@ -76,6 +76,7 @@ var questions = [
           try{
            await registerUser(questions[0].value, questions[1].value);
           }catch(error){
+              showError(error);
               console.log(error);
               wrong();
               return;
@@ -86,6 +87,7 @@ var questions = [
             await verifyOTP(questions[1].value,questions[2].value);
             console.log("here 1");
           }catch(error){
+            showError(error);
             console.log(error);
             wrong();
             return;
@@ -123,6 +125,7 @@ var questions = [
             }
                resolve("success");
             }catch(error){
+                showError(error);
                 reject ("Some Error occured");
             }
     });
@@ -256,5 +259,9 @@ function countDown() {
       } 
 
   }, 1000);
+}
+
+function showError(error){
+  document.getElementById("errorbox").innerHTML = error ;
 }
 
