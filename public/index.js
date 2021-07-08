@@ -1,6 +1,6 @@
 var questions = [
   {question:"What's your full name?",pattern: /^([a-zA-Z\s.]{3,60})$/},
-  {question:"What's your 10 digit US Phone Number?",pattern: /^\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/ },
+  {question:"What's your 10 digit US Phone Number?",pattern: /^\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/ },
   {question:"Enter the Recieved OTP", pattern: /^([0-9]{4})$/},
 ]
 
@@ -59,7 +59,7 @@ var questions = [
 
   // when submitting the current question
   function validate() {
-
+    console.log(position);
     // set the value of the field into the array
     questions[position].value = inputField.value
 
@@ -67,11 +67,17 @@ var questions = [
     if (!inputField.value.match(questions[position].pattern || /.+/)) wrong()
     else ok(function() {
       
-      // set the progress of the background
-      ++position 
-      if(position == 2){
-          registerUser(question[0].value, question[1].value);
+
+      // current question position in question array
+      if(position == 1){
+          try{
+          registerUser(questions[0].value, questions[1].value);
+          }catch(e){
+              throw "error";
+          }
       }
+      // increase position
+      ++position 
       progress.style.width = position * 100 / questions.length + 'vw'
       
       // if there is a new question, hide current and load next
