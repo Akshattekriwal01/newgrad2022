@@ -98,7 +98,7 @@ h1 {
   pointer-events: none;
   top: 0;
   left: 0;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
   padding: 0 5px;
   transition: .2s ease-in-out;
@@ -124,5 +124,5 @@ h1 {
 }
 
 #progressButton{
-	
+
 }
