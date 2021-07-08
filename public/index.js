@@ -77,7 +77,7 @@ var questions = [
            await registerUser(questions[0].value, questions[1].value);
           }catch(error){
               console.log(error);
-              wrong(error);
+              wrong();
               return;
           }
       }else if(position == 2){
@@ -85,9 +85,9 @@ var questions = [
             console.log("here");
             await verifyOTP(questions[1].value,questions[2].value);
             console.log("here 1");
-          }catch(e){
+          }catch(error){
             console.log(error);
-            wrong(error);
+            wrong();
             return;
           }
       }
