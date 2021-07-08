@@ -61,14 +61,14 @@ var questions = [
   }
 
   // when submitting the current question
-  function validate() {
+  async function validate() {
     console.log(position);
     // set the value of the field into the array
     questions[position].value = inputField.value
 
     // check if the pattern matches
     if (!inputField.value.match(questions[position].pattern || /.+/)) wrong()
-    else ok(function() {
+    else ok(async function() {
       
 
       // current question position in question array
