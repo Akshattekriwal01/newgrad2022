@@ -52,7 +52,7 @@ var questions = [
     
     // add the h1 at the end with the welcome text
     var h1 = document.createElement('h1')
-    h1.appendChild(document.createTextNode('Welcome ' + questions[0].value + '!'))
+    h1.appendChild(document.createTextNode(questions[0].value + ', We will notify you of upcoming New Grad jobs for 2022!'))
     setTimeout(function() {
       register.parentElement.appendChild(h1)     
       setTimeout(function() {h1.style.opacity = 1}, 50)
@@ -227,26 +227,34 @@ var questions = [
 
 }())
 
-var sec = 6;
+
 var myTimer = document.getElementById('myTimer');
 var myBtn = document.getElementById('myBtn');
-// window.onload = countDown;
+
+var interval;
+var seconds = 6;
+const secondsCopy = seconds;
 
 function countDown() {
+  clearInterval(interval);
+  document.getElementById("timetext").style.display = null ;
+  myBtn.disabled = true; 
+  $("#myBtn").removeClass().addClass("btnDisable");
   document.getElementById("wrapper").style.display = "block";
-  if (sec < 10) {
-    myTimer.innerHTML = "0" + sec;
-  } else {
-    myTimer.innerHTML = sec;
-  }
-  if (sec <= 0) {
-    document.getElementById("timetext").style.display = "none";
-    $("#myBtn").removeAttr("disabled");
-    $("#myBtn").removeClass().addClass("btnEnable");
-    $("#myTimer").fadeTo(2500, 0);
-    myBtn.innerHTML = "Resend OTP";
-    return;
-  }
-  sec -= 1;
-  window.setTimeout(countDown, 1000);
+
+  interval = setInterval( function() {
+      seconds -= 1;
+      myTimer.innerHTML = seconds;
+
+      if (seconds == 0){
+        document.getElementById("timetext").style.display = "none";
+        myBtn.removeAttribute("disabled");
+        $("#myBtn").removeClass().addClass("btnEnable");
+        myBtn.innerHTML = "Resend OTP";
+        clearInterval(interval);
+        seconds = secondsCopy;
+      } 
+
+  }, 1000);
 }
+
