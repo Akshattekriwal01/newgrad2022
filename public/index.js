@@ -39,6 +39,9 @@ var questions = [
     inputField.type = questions[position].type || 'text'  
     inputField.focus()
     showCurrent()
+    if (position==2){
+      countDown()
+    }
   }
   
   // when all the questions have been answered
@@ -146,9 +149,10 @@ var questions = [
 var sec = 60;
 var myTimer = document.getElementById('myTimer');
 var myBtn = document.getElementById('myBtn');
-window.onload = countDown;
+// window.onload = countDown;
 
 function countDown() {
+  document.getElementById("wrapper").style.display = "block";
   if (sec < 10) {
     myTimer.innerHTML = "0" + sec;
   } else {
