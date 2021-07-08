@@ -1,24 +1,13 @@
 var questions = [
-  {question:"What's your first name?"},
-  {question:"What's your last name?"},
-  {question:"What's your email?", pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/},
-  {question:"Create your password", type: "password"}
+  {question:"What's your full name?"},
+  {question:"What's your 10 digit US Phone Number?",pattern: /^\s*([0-9]{10})\s*$/ },
+  {question:"Enter the Recieved OTP", pattern: /^([0-9]{4})$/},
 ]
 
 /**********
 
-  !!!!!
-  New Version: https://codepen.io/arcs/pen/rYXrNQ
-  !!!!!
-  
   Credits for the design go to XavierCoulombeM
   https://dribbble.com/shots/2510592-Simple-register-form
-  
-  This Pen uses no libraries except fonts and should 
-  work on all modern browsers
-  
-  The answers are stored in the `questions` array
-  with the key `value`. 
 
  **********/
 
