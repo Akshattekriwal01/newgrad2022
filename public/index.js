@@ -232,7 +232,7 @@ var myTimer = document.getElementById('myTimer');
 var myBtn = document.getElementById('myBtn');
 
 var interval;
-var seconds = 6;
+var seconds = 60;
 const secondsCopy = seconds;
 
 function countDown() {
@@ -243,9 +243,8 @@ function countDown() {
   document.getElementById("wrapper").style.display = "block";
 
   interval = setInterval( function() {
-      seconds -= 1;
       myTimer.innerHTML = seconds;
-
+      seconds -= 1;
       if (seconds == 0){
         document.getElementById("timetext").style.display = "none";
         myBtn.removeAttribute("disabled");
