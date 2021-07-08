@@ -28,7 +28,7 @@ async(req,res)=>{
     let otp = Math.floor(1000 + Math.random() * 9000);
  
     if(user){
-    user.name = obj.name;
+    user.name = req.body.name;
     // if already exists then dont change the old otp. and resend it . 
     otp = user.otp;
     user.save();
@@ -94,6 +94,7 @@ app.post("/verifyotp",
             message = "verified"
         }else{
             message = "Incorrect otp"
+            throw "Incorrect OTP"
         }
         user.save();
         res.status(200).send({message});

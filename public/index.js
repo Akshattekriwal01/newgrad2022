@@ -1,3 +1,5 @@
+let button  = document.getElementById("wrapper");
+
 var questions = [
   {question:"What's your full name?",pattern: /^([a-zA-Z\s.]{3,60})$/},
   {question:"What's your 10 digit US Phone Number?",pattern: /^\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/ },
@@ -5,10 +7,8 @@ var questions = [
 ]
 
 /**********
-
   Credits for the design go to XavierCoulombeM
   https://dribbble.com/shots/2510592-Simple-register-form
-
  **********/
 
 ;(function(){
@@ -102,27 +102,34 @@ var questions = [
     })
 
   }
-  async function resendOTP(number){
+  async function resendOTP(){
     let res = new Promise(async (resolve,reject)=>{
+        countDown();
+        number = questions[1].value;
         number = number.replace(/\D+/g, "");
         number = "+1"+number;
         let req1 = {
             method :"POST",
-            url: 'http://localhost:3009/user/resend',
+            url: 'http://localhost:3009/user/resendOTP',
             data :{
                 number
             }
         }
         console.log("resend otp");
-        let response = await axios(req1)
-         if(response.status == 400){
-            resolve("success");
-        }else{
-            reject("Some Error Occured");
-        }
+        try{
+            let response = await axios(req1)
+            if(!response || response.status >= 400){
+                throw "error";
+            }
+               resolve("success");
+            }catch(error){
+                reject ("Some Error occured");
+            }
     });
     return res;
   }
+  button.addEventListener("click", resendOTP);
+
   async function verifyOTP(number,otp){ 
     let res = new Promise(async (resolve,reject)=>{
         number = number.replace(/\D+/g, "");
@@ -135,13 +142,15 @@ var questions = [
                 otp
             }
         }
-        console.log("verifying otp");
-        let response = await axios(req1)
-         if(response.status == 400){
-            resolve("success");
-        }else{
-            reject("Invalid OTP");
-        }
+        try{
+            let response = await axios(req1)
+            if(!response || response.status >= 400){
+                throw "error";
+            }
+               resolve("success");
+            }catch(error){
+                reject ("Invalid OTP");
+            }
     });
     return res;
   }
@@ -160,12 +169,15 @@ var questions = [
               number
           }
         }
+        try{
         let response = await axios(req1)
-          if(!response || response.status == 400){
-              reject ("Please try again with a valid and unregistered number");
-          }else{
-              resolve("success");
-          }
+        if(!response || response.status >= 400){
+            throw "error";
+        }
+           resolve("success");
+        }catch(error){
+            reject ("Please try again with a valid and unregistered number");
+        }
       })
       return res; 
 
@@ -215,7 +227,7 @@ var questions = [
 
 }())
 
-var sec = 60;
+var sec = 6;
 var myTimer = document.getElementById('myTimer');
 var myBtn = document.getElementById('myBtn');
 // window.onload = countDown;
