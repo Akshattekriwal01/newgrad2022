@@ -11,12 +11,15 @@ if the number exists and is not verified then generate an otp and change name;
 when verifying otp and is verified then set verified to true; 
 */
 app.post("/register",
-body('name').isLength({max:80,min:3}).not().isEmpty().trim().escape(),
-body('number').isMobilePhone(),
+ body('name').isLength({max:80,min:3}).not().isEmpty().trim().escape(),
+ body('number').isMobilePhone(),
 async(req,res)=>{
+
     try{
+    console.log(req.body);
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
+        console.log(errors);
         throw "Input Validation Error"
     }
     let user = await userM.findOne({number:req.body.number});
@@ -41,6 +44,7 @@ async(req,res)=>{
     res.status(200).send();
    
     }catch(errors){
+        console.log(errors);
         res.status(400).json({error:errors});
     }
 

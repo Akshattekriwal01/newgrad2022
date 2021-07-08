@@ -71,9 +71,11 @@ var questions = [
       // current question position in question array
       if(position == 1){
           try{
+              console.log(questions[0].value)
+              console.log(questions[1].value)
           registerUser(questions[0].value, questions[1].value);
           }catch(e){
-              throw "error";
+              console.log(e);
           }
       }
       // increase position
@@ -92,14 +94,17 @@ var questions = [
   number = number.replace(/\s+/g, "");
   number = "+1"+number;
   console.log(number);
+  
   let req1 = {
     method :"POST",
-    url: "https://localhost:3009/user/register",
-    body :{
+    url: 'http://localhost:3009/user/register',
+    data :{
         name ,
         number
     }
   }
+  console.log(req1);
+  console.log("sending request");
   axios(req1).then(async (response)=>{
   console.log(response);
   })
