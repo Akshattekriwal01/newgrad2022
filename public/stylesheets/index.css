@@ -127,17 +127,19 @@ h1 {
 
 }
 #wrapper {
+
   text-align:center;
   border:1px solid #7F7F7F;
   width:150px;
   margin:25px auto;
   padding:25px;
   background-color:#E3E4E4;
+  display: none;
 }
 
 #myTimer {
-  font:64px Tahoma bold;
-  padding:20px;
+  font:20px Tahoma bold;
+  padding:10px;
   display:block;
 }
 
