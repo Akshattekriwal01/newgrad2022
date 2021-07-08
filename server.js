@@ -31,7 +31,10 @@ var job = new CronJob('0 0 * * * *', function() {
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
+app.use(function(req, res, next) {
+  console.log(req.originalUrl);
+  next();
+});
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Credentials", "true")
   res.header("Access-Control-Allow-Credentials", "*");

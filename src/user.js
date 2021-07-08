@@ -16,7 +16,6 @@ app.post("/register",
 async(req,res)=>{
 
     try{
-    console.log(req.body);
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         console.log(errors);
@@ -27,16 +26,18 @@ async(req,res)=>{
         throw "Number Already Registered";
     }
     let otp = Math.floor(1000 + Math.random() * 9000);
+ 
+    if(user){
+    user.name = obj.name;
+    // if already exists then dont change the old otp. and resend it . 
+    otp = user.otp;
+    user.save();
+    }else{
     let obj = {
         name : req.body.name,
         number : req.body.number,
         otp: otp
     }
-    if(user){
-    user.name = obj.name;
-    user.otp = otp;
-    user.save();
-    }else{
      user = await userM.create(obj);
     }
     

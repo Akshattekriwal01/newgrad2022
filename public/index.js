@@ -74,11 +74,21 @@ var questions = [
       // current question position in question array
       if(position == 1){
           try{
-              console.log(questions[0].value)
-              console.log(questions[1].value)
-          registerUser(questions[0].value, questions[1].value);
+           await registerUser(questions[0].value, questions[1].value);
+          }catch(error){
+              console.log(error);
+              wrong(error);
+              return;
+          }
+      }else if(position == 2){
+          try{
+            console.log("here");
+            await verifyOTP(questions[1].value,questions[2].value);
+            console.log("here 1");
           }catch(e){
-              console.log(e);
+            console.log(error);
+            wrong(error);
+            return;
           }
       }
       // increase position
@@ -92,26 +102,60 @@ var questions = [
     })
 
   }
-  function registerUser(name, number){
-  number = number.replace(/\D+/g, "");
-  number = number.replace(/\s+/g, "");
-  number = "+1"+number;
-  console.log(number);
-  
-  let req1 = {
-    method :"POST",
-    url: 'http://localhost:3009/user/register',
-    data :{
-        name ,
-        number
-    }
+  async function verifyOTP(number,otp){ 
+    let res = new Promise(async (resolve,reject)=>{
+        number = number.replace(/\D+/g, "");
+        number = number.replace(/\s+/g, "");
+        number = "+1"+number;
+        let req1 = {
+            method :"POST",
+            url: 'http://localhost:3009/user/verifyotp',
+            data :{
+                number,
+                otp
+            }
+        }
+        console.log("verifying otp");
+        let response = await axios(req1)
+         if(response.status == 400){
+            resolve("success");
+        }else{
+            reject("Invalid OTP");
+        }
+    });
+    return res;
   }
-  console.log(req1);
-  console.log("sending request");
-  axios(req1).then(async (response)=>{
-  console.log(response);
-  })
+  async function registerUser(name, number){
+      let res = new Promise(async (resolve,reject)=>{
+        number = number.replace(/\D+/g, "");
+        number = number.replace(/\s+/g, "");
+        number = "+1"+number;
+        console.log(number);
+        
+        let req1 = {
+          method :"POST",
+          url: 'http://localhost:3009/user/register',
+          data :{
+              name ,
+              number
+          }
+        }
+        let response = await axios(req1)
+          if(!response || response.status == 400){
+              reject ("Please try again with a valid and unregistered number");
+          }else{
+              resolve("success");
+          }
+      })
+      return res; 
+
+        // handle user already exists scenerio.
+        //handle the wrong number scenerio like 1234567891
+        // action, try again with valid and unregestered number.
+        // dont proceed and show error
   }
+
+
 
   // helper
   // --------------
