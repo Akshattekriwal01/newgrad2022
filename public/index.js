@@ -1,6 +1,6 @@
 var questions = [
   {question:"What's your full name?"},
-  {question:"What's your 10 digit US Phone Number?",pattern: /^\s*([0-9]{10})\s*$/ },
+  {question:"What's your 10 digit US Phone Number?",pattern: /^\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/ },
   {question:"Enter the Recieved OTP", pattern: /^([0-9]{4})$/},
 ]
 
@@ -73,7 +73,7 @@ var questions = [
       // if there is a new question, hide current and load next
       if (questions[position]) hideCurrent(putQuestion)
       else hideCurrent(done)
-             
+          
     })
 
   }
