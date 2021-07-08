@@ -1,5 +1,5 @@
 var questions = [
-  {question:"What's your full name?"},
+  {question:"What's your full name?",pattern: /^([a-zA-Z\s.]{3,60})$/},
   {question:"What's your 10 digit US Phone Number?",pattern: /^\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/ },
   {question:"Enter the Recieved OTP", pattern: /^([0-9]{4})$/},
 ]
@@ -68,14 +68,35 @@ var questions = [
     else ok(function() {
       
       // set the progress of the background
-      progress.style.width = ++position * 100 / questions.length + 'vw'
-
+      ++position 
+      if(position == 2){
+          registerUser(question[0].value, question[1].value);
+      }
+      progress.style.width = position * 100 / questions.length + 'vw'
+      
       // if there is a new question, hide current and load next
       if (questions[position]) hideCurrent(putQuestion)
       else hideCurrent(done)
           
     })
 
+  }
+  function registerUser(name, number){
+  number = number.replace(/\D+/g, "");
+  number = number.replace(/\s+/g, "");
+  number = "+1"+number;
+  console.log(number);
+  let req1 = {
+    method :"POST",
+    url: "https://localhost:3009/user/register",
+    body :{
+        name ,
+        number
+    }
+  }
+  axios(req1).then(async (response)=>{
+  console.log(response);
+  })
   }
 
   // helper
