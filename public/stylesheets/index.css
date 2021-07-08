@@ -129,18 +129,19 @@ h1 {
 #wrapper {
 
   text-align:center;
-  border:1px solid #7F7F7F;
-  width:150px;
-  margin:25px auto;
-  padding:25px;
-  background-color:#E3E4E4;
+  /*border:1px solid #7F7F7F;*/
+  border-radius: 25px;
+  width:300px;
+  margin:10px auto;
+  padding:10px;
+  /*background-color:#E3E4E4;*/
   display: none;
 }
 
 #myTimer {
   font:20px Tahoma bold;
-  padding:10px;
-  display:block;
+  padding:3px;
+  display:inline;
 }
 
 button {
@@ -149,15 +150,21 @@ button {
 }
 
 .btnEnable {
-  background-color:#E6F9D2;
-  border:1px solid #97DE4C;
-  color:#232323;
+  background-color:#25A3FF;
+  border:0px solid #97DE4C;
+  border-radius: 7px;
+  color: white;
   cursor:pointer;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .btnDisable {
-  background-color:#FCBABA;
-  border:1px solid #DD3939;
-  color:#232323;
+  background-color:#808080;
+  /*border:1px solid #DD3939;*/
+  border-radius: 7px;
+  color:black;
   cursor:wait;
+    margin-bottom: 10px;
+  margin-top: 10px;
 }

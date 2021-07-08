@@ -211,7 +211,7 @@ function countDown() {
     $("#myBtn").removeAttr("disabled");
     $("#myBtn").removeClass().addClass("btnEnable");
     $("#myTimer").fadeTo(2500, 0);
-    myBtn.innerHTML = "Click Me!";
+    myBtn.innerHTML = "Resend OTP";
     return;
   }
   sec -= 1;
