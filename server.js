@@ -36,7 +36,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //   next();
 // });
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Credentials", "true")
+  //res.header("Access-Control-Allow-Credentials", "true")
   res.header("Access-Control-Allow-Credentials", "*");
   res.header("Access-Control-Allow-Methods", "DELETE, POST, GET, OPTIONS")
   next();
