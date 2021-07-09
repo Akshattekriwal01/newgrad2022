@@ -280,8 +280,8 @@ if (el.classList.contains("red")) {
  */
 
 function showError(error){
-  document.getElementById("errorbox").innerHTML = error ;
   document.getElementById("errorbox").style.display = "block" ;
+  document.getElementById("errorbox").innerHTML = error ;
 
 }
 function hideError(){

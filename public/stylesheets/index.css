@@ -170,7 +170,7 @@ button {
 }
 
 .navbar {
-  background-color: #333;
+  background-color: rgba(0, 0, 0, 0.0);
   overflow: hidden;
   position: fixed;
   bottom: 0;
@@ -214,4 +214,5 @@ button {
   padding-left: 30px;
   padding-right: 50px;
   color: red;
+  display: none;
 }
