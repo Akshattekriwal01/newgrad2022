@@ -63,6 +63,22 @@ h1 {
   box-shadow: 0 16px 24px 2px rgba(0,0,0,0);
 }
 
+#mast.close {
+  width: 0;
+  padding: 0;
+  overflow: hidden;
+  transition: 0.8s ease-in-out;
+  box-shadow: 0 16px 24px 2px rgba(0,0,0,0);
+}
+
+#submast.close {
+  width: 0;
+  padding: 0;
+  overflow: hidden;
+  transition: 0.8s ease-in-out;
+  box-shadow: 0 16px 24px 2px rgba(0,0,0,0);
+}
+
 .next {
   position: absolute;
   right: 20px;
