@@ -45,7 +45,7 @@ async(req,res)=>{
     res.status(200).send();
    
     }catch(errors){
-        console.log(errors);
+        //console.log(errors);
         res.status(400).json({error:errors});
     }
 
@@ -69,7 +69,7 @@ async (req,res)=>{
     res.status(200).send();
 
     }catch(errors){
-        console.log(errors);
+        //console.log(errors);
         res.status(400).json({error:errors});
     }
 
@@ -99,7 +99,7 @@ app.post("/verifyotp",
         user.save();
         res.status(200).send({message});
         }catch(errors){
-            console.log(errors);
+           // console.log(errors);
             res.status(400).json({error:errors});
         }
     }
