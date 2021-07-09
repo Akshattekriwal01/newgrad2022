@@ -8,6 +8,7 @@ const collector = require('./src/getAllJobs');
 const script = require("./src/vacancy");
 const userRoutes = require("./src/user");
 const cors = require("cors");
+var https = require('https');
 const bodyParser = require("body-parser");
 connectDB();
 
@@ -51,4 +52,6 @@ app.use(function(req, res, next) {
 // })
 app.use("/user",userRoutes);
   const port = 3009
-app.listen(port, () => console.log(`server is listening at ${port}`));
+//app.listen(port, () => console.log(`server is listening at ${port}`));
+
+https.createServer(app).listen(443)
