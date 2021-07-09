@@ -281,9 +281,12 @@ if (el.classList.contains("red")) {
 
 function showError(error){
   document.getElementById("errorbox").innerHTML = error ;
+  document.getElementById("errorbox").style.display = "block" ;
+
 }
 function hideError(){
     document.getElementById("errorbox").innerHTML = "" ;
+    document.getElementById("errorbox").style.display = null ;
 
 }
 
