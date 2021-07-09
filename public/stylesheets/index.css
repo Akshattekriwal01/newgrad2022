@@ -54,7 +54,16 @@ h1 {
   box-shadow: 0 16px 24px 2px rgba(0,0,0,0.14), 0 6px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -5px rgba(0,0,0,0.3);
   transition: transform .1s ease-in-out;
 }
-
+@media (max-width: 600px) {
+  #register {
+    max-width: fit-content;
+    background: #fff;
+    position: relative;
+    padding: 2px 15px 20px 15px;
+    box-shadow: 0 16px 24px 2px rgba(0,0,0,0.14), 0 6px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -5px rgba(0,0,0,0.3);
+    transition: transform .1s ease-in-out;
+  }
+}
 #register.close {
   width: 0;
   padding: 0;
@@ -212,7 +221,7 @@ button {
   background-color: #ddd;
   color: black;
   float: right;
-  
+
 }
 
 /* Add a color to the active/current link */
@@ -257,4 +266,13 @@ button {
   color: #fff;
   font-size: 20px;
   padding: 20px;
+}
+
+@media (max-width: 600px) {
+  #submast{
+    color: #fff;
+    font-size: 20px;
+    padding: 20px;
+    padding-left: 30px;
+  }
 }
