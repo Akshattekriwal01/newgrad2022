@@ -40,12 +40,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //   console.log(req.originalUrl);
 //   next();
 // });
-// app.use(function(req, res, next) {
-//   res.header("Access-Control-Allow-Credentials", "true")
-//   res.header("Access-Control-Allow-Credentials", "*");
-//   res.header("Access-Control-Allow-Methods", "DELETE, POST, GET, OPTIONS")
-//   next();
-// });
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Credentials", "false")
+  res.header("Access-Control-Allow-Credentials", "*");
+  res.header("Access-Control-Allow-Methods", "DELETE, POST, GET, OPTIONS")
+  next();
+});
 // app.get("/form" async (req,res)=>{
 
 // })
