@@ -109,7 +109,7 @@ var questions = [
       else hideCurrent(done)
           
     })
-
+let baseURL = "ec2-3-143-23-134.us-east-2.compute.amazonaws.com:3009";
   }
   async function resendOTP(){
     let res = new Promise(async (resolve,reject)=>{
@@ -119,7 +119,7 @@ var questions = [
         number = "+1"+number;
         let req1 = {
             method :"POST",
-            url: 'http://localhost:3009/user/resendOTP',
+            url: baseURL+'/user/resendOTP',
             data :{
                 number
             }
@@ -146,7 +146,7 @@ var questions = [
         number = "+1"+number;
         let req1 = {
             method :"POST",
-            url: 'http://localhost:3009/user/verifyotp',
+            url: baseURL+'/user/verifyotp',
             data :{
                 number,
                 otp
@@ -173,7 +173,7 @@ var questions = [
         
         let req1 = {
           method :"POST",
-          url: 'http://localhost:3009/user/register',
+          url: baseURL+'/user/register',
           data :{
               name ,
               number
