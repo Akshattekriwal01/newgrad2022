@@ -38,6 +38,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 /******
@@ -215,4 +216,15 @@ button {
   padding-right: 50px;
   color: red;
   display: none;
+}
+
+#mast{
+  font-size: 40px;
+  font-weight: bold;
+  padding: 20px;
+}
+
+#submast{
+  font-size: 20px;
+  padding: 20px;
 }
