@@ -125,7 +125,7 @@ var questions = [
             }
                resolve("success");
             }catch(error){
-                showError(error);
+                
                 reject ("Some Error occured");
             }
     });
@@ -260,7 +260,30 @@ function countDown() {
   }, 1000);
 }
 
+/**
+ * 
+ * .m-fadeOut {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 300ms, opacity 300ms;
+}
+.m-fadeIn {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s linear 0s, opacity 300ms;
+}} error 
+
+//code to remove class
+if (el.classList.contains("red")) {
+    el.classList.remove("red");
+  }
+ */
+
 function showError(error){
   document.getElementById("errorbox").innerHTML = error ;
+}
+function hideError(){
+    document.getElementById("errorbox").innerHTML = "" ;
+
 }
 
