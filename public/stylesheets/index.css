@@ -273,6 +273,15 @@ button {
     color: #fff;
     font-size: 20px;
     padding: 20px;
-    padding-left: 30px;
+    padding-left: 2%;
+  }
+}
+@media (max-width: 600px) {
+  #mast{
+    font-size: 40px;
+    font-weight: bold;
+    padding: 30px;
+    color: #fff;
+    padding-left: 2%;
   }
 }
