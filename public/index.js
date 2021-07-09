@@ -282,14 +282,24 @@ if (el.classList.contains("red")) {
  */
 
 function showError(error){
-  document.getElementById("errorbox").style.display = "block" ;
-  document.getElementById("errorbox").innerHTML = error ;
-  setTimeout(hideError,2000);
+  let elem = document.getElementById("errorbox");
+  elem.style.display = "block" ;
+  elem.innerHTML = error ;
+  elem.style.visibility = "visible"
+  //elem.classList.add("m-fadeIn");
+  setTimeout(hideError,3000);
 
 }
 function hideError(){
-    document.getElementById("errorbox").innerHTML = "" ;
-    document.getElementById("errorbox").style.display = null ;
+    let elem = document.getElementById("errorbox");
+    elem.classList.add("m-fadeOut")
+    setTimeout(()=>{
+    elem.innerHTML = "" ;
+    elem.style.visibility = "hidden"
+    elem.classList.remove("m-fadeOut")
+    },500)
+  
+
 
 }
 console.log(register)
