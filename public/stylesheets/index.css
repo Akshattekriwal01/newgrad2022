@@ -38,6 +38,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 /******
@@ -226,4 +227,14 @@ button {
   visibility: visible;
   opacity: 1;
   transition: visibility 0s linear 0s, opacity 300ms;
+}
+#mast{
+  font-size: 40px;
+  font-weight: bold;
+  padding: 20px;
+}
+
+#submast{
+  font-size: 20px;
+  padding: 20px;
 }

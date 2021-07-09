@@ -49,6 +49,8 @@ var questions = [
     
     // remove the box if there is no next question
     register.className = 'close'
+    mast.className = 'close'
+    submast.className = 'close'
     
     // add the h1 at the end with the welcome text
     var h1 = document.createElement('h1')
@@ -300,4 +302,5 @@ function hideError(){
 
 
 }
+console.log(register)
 
