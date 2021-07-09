@@ -52,6 +52,6 @@ app.use(function(req, res, next) {
 // })
 app.use("/user",userRoutes);
   const port = 3009
-//app.listen(port, () => console.log(`server is listening at ${port}`));
+app.listen(port, () => console.log(`server is listening at ${port}`));
 
-https.createServer(app).listen(443)
+//https.createServer(app).listen(443)
