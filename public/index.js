@@ -1,7 +1,7 @@
 let button  = document.getElementById("wrapper");
 
 var questions = [
-  {question:"What's your full name?",pattern: /^([a-zA-Z\s.]{3,60})$/},
+  {question:"What's your name?",pattern: /^([a-zA-Z\s.]{3,60})$/},
   {question:"What's your 10 digit US Phone Number?",pattern: /^\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/ },
   {question:"Enter the Recieved OTP", pattern: /^([0-9]{4})$/},
 ]
@@ -49,15 +49,20 @@ var questions = [
     
     // remove the box if there is no next question
     register.className = 'close'
-    mast.className = 'close'
-    submast.className = 'close'
+    mast.className = 'm-fadeOut'
+    submast.className = 'm-fadeOut'
     
     // add the h1 at the end with the welcome text
     var h1 = document.createElement('h1')
-    h1.appendChild(document.createTextNode(questions[0].value + ', We will notify you of upcoming New Grad jobs for 2022!'))
+
+    h1.appendChild(document.createTextNode(questions[0].value.trim().split(' ')[0] + ', We will notify you of upcoming New Grad jobs for 2022!'))
     setTimeout(function() {
       register.parentElement.appendChild(h1)     
-      setTimeout(function() {h1.style.opacity = 1}, 50)
+      setTimeout(function() {
+        mast.style.display  = 'none';
+        submast.style.display = "none";
+       
+        h1.style.opacity = 1}, 50)
     }, eTime)
     
   }

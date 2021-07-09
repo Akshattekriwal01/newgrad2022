@@ -226,7 +226,6 @@ button {
 }
 
 #errorbox{
-  font-weight: bold;
   padding-top: 20px;
   margin-top: 10px;
   padding-left: 30px;
@@ -246,12 +245,15 @@ button {
   transition: visibility 0s linear 0s, opacity 300ms;
 }
 #mast{
+  
   font-size: 40px;
   font-weight: bold;
   padding: 30px;
+  color: #fff;
 }
 
 #submast{
+  color: #fff;
   font-size: 20px;
   padding: 20px;
 }
