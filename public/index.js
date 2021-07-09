@@ -282,6 +282,7 @@ if (el.classList.contains("red")) {
 function showError(error){
   document.getElementById("errorbox").style.display = "block" ;
   document.getElementById("errorbox").innerHTML = error ;
+  setTimeout(hideError(),2000);
 
 }
 function hideError(){
