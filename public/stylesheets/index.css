@@ -216,7 +216,7 @@ button {
 
 /* Add a color to the active/current link */
 .navbar a.active {
-  background-color: #04AA6D;
+  background-color: green;
   color: white;
   float: right;
 }
