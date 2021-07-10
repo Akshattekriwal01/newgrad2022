@@ -110,7 +110,7 @@ var questions = [
           
     })
   }
-  var baseURL = "http://ec2-3-143-23-134.us-east-2.compute.amazonaws.com:3009";
+  var baseURL = "https://api.akshattekriwal.com";
   async function resendOTP(){
     let res = new Promise(async (resolve,reject)=>{
         countDown();
