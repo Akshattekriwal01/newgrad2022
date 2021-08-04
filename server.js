@@ -25,12 +25,12 @@ let runner = async()=>{
       console.log(e);
     }
 }
-runner();
+//runner();
 //Runs every one hour
 var job = new CronJob('0 */30 * * * *', function() {
-  //runner();
+  runner();
 }, null, true, 'America/Los_Angeles');
-//job.start();
+job.start();
 var corsOptions = {
   origin:['https://akshattekriwal.com', 'https://www.akshattekriwal.com'],
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
