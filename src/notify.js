@@ -5,8 +5,7 @@ const msgClient = require('twilio')(config.twilio.id, config.twilio.key);
 
 module.exports.notify = async function (users,msg){
     // check for the max body length ;
-    let body = `New Grad 2022 Opening.\nName: ${msg.name.toUpperCase()}\nLink: ${msg.link}\nDetails: ${msg.detail}`;
-    
+    let body = `New Grad 2022 Opening.\nName: ${msg.name.toUpperCase()}\nLink: ${msg.link}\nDetails: ${msg.detail} \n Best~ Akshat`;
     for(let i = 0 ; i < users.length ; i++){
        
         msgClient.messages.create({
@@ -15,8 +14,8 @@ module.exports.notify = async function (users,msg){
         to: users[i].number
     })
     .then(message => {
-       // console.log(message.sid)
-    });
+       //console.log(message.sid);
+    }).catch(e => console.log(e));
     }
 
   }

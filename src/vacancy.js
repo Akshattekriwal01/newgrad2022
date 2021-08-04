@@ -17,16 +17,6 @@ module.exports.run = async function (){
 
     let db = await vacancyM.find({});
     let vacancies = await collector.getData();
-    // let vacancies = [{
-    //     name: 'Akuna Capdsago',
-    //     link: 'https://akunacapital.com/careers?experience=junior&department=development#careers',
-    //     detail: 'Chicago, Various Junior Developer Positions'
-    //   },
-    //   {
-    //     name: 'Akuna Capisfdssdf',
-    //     link: 'https://akunacapital.com/careers?experience=junior&department=development#careers',
-    //     detail: 'Chicago, Various Junior Developer Positions'
-    //   }]
     // find the new Vacancies
     let newVacancies = [] ;
     for(let i = 0 ; i< vacancies.length ; i++){
@@ -46,13 +36,21 @@ module.exports.run = async function (){
     newVacancies.map(async (item) =>{
         await vacancyM.create(item);
     })
-
-    let users = await userM.find({verified:true},"number").exec();
-    if(!users){throw "Some Error Occured"};
+    //  let users = {"number" : "+12404674015",
+    //               "number" : "+14099985847",
+    //               "number" : "+13012566729"}    
+    let users = [{"number" : "+12404674015"},
+                 {"number" : "+14099985847"},// reshma di
+                 {"number" : "+13012566729"}// Anchit Jain
+                ]
+    //let users = await userM.find({verified:true,},"number").exec();
+    //if(!users){throw "Some Error Occured"};
      newVacancies.map(item =>{
+         console.log("here1");
        notifier.notify(users,item);
      })
     resolve(newVacancies);
+
     }catch(e){
         console.log(e);
         reject(e);
